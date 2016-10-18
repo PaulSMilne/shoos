@@ -1,21 +1,21 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
 require 'pry-byebug'
-require_relative './models/shoe'
+require_relative './models/order'
 
-get '/shoe/order' do
+get '/order/form' do
   erb(:order)
 end
 
-post '/shoe' do
-  @shoe = Shoe.new(params)
+post '/order' do
+  @order = Order.new(params)
   # binding.pry
-  @shoe.save
+  @order.save
   erb(:confirm)
 end
 
-get '/shoe' do
-  @shoes = Shoe.all()
+get '/outstanding_orders' do
+  @orders = Order.all()
   erb(:index)
 end
 

@@ -4,15 +4,15 @@
 
 <table>
 <tr id="headers">
-    <th>Name</th><th>Address</th><th>Quantity</th><th>Size</th>
-</tr>
+    <th>Name</th><th>Address</th><th>Quantity</th></tr>
 
-<% @shoes.each do |shoe| %>
+<% @orders.each do |order| %>
+
 <tr>
-    <td><%= shoe.name %></td>
-    <td><%= shoe.address %></td>
-    <td><%= shoe.quantity %></td>
-    <td><%= shoe.size %></td>
+    <td><%= order.name %></td>
+    <td><%= order.address %></td>
+    <td><%= order.quantity %></td>
+    
 </tr>
 
 <% end %>

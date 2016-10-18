@@ -2,26 +2,23 @@ require_relative '../db/sql_runner'
 
 class Shoe
 
-attr_reader :id, :name, :address, :quantity, :size
+attr_reader :id, :model, :size, :color
 
       def initialize(params)
         @id = nil || params['id'].to_i
-        @name = params['name']
-        @address = params['address']
-        @quantity = params['quantity'].to_i
-        @size = params['size']
+        @model = params['model']
+        @size = params['size'].to_i
+        @color = params['color'].to_i
       end
 
       def save
         sql="INSERT INTO shoes (
-          name,
-          address,
-          quantity,
-          size) VALUES (
-          '#{@name}',
-          '#{@address}',
-          #{@quantity}, 
-          '#{@size}') RETURNING *"
+          model,
+          size,
+          color) VALUES (
+          '#{@model}',
+           #{@size},
+           #{@color}) RETURNING *"
         shoe_data = SqlRunner.run(sql)
         @id = shoe_data.first['id'].to_i
       end
@@ -29,7 +26,7 @@ attr_reader :id, :name, :address, :quantity, :size
       def self.all
         sql = "SELECT * FROM shoes"
         shoes = SqlRunner.run(sql)
-        result = shoes.map {|shoe| Shoe.new(shoe)}
+        result = shoes.map {|shoe| Shoe.new(order)}
         return result
       end
 

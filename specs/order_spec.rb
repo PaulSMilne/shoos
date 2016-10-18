@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/rg'
-require_relative '../models/shoe'
+require_relative '../models/order'
 
 class TestShoe < MiniTest::Test
 
@@ -11,11 +11,11 @@ class TestShoe < MiniTest::Test
       "quantity" => "9",
       "size" => "10"     
     }
-    @shoe = Shoe.new(options)
+    @order = Order.new(options)
   end
 
   def test_name
-    assert_equal("Jim Doe", @shoe.name)
+    assert_equal("Jim Doe", @order.name)
   end
 
 
