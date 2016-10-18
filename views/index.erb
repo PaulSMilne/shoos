@@ -1,11 +1,20 @@
-<h1>List of shoe orders</h1>
+<body id="outstanding">
+
+<h1>List of outstanding shoe orders</h1>
+
+<table>
+<tr id="headers">
+    <th>Name</th><th>Address</th><th>Quantity</th><th>Size</th>
+</tr>
 
 <% @shoes.each do |shoe| %>
-  <p><strong>Name:</strong> <%= shoe.name %></p>
-  <p><strong>Address:</strong> <%= shoe.address %></p>
-  <p><strong>Quantity:</strong> <%= shoe.quantity %></p>
-  <p><strong>Size:</strong> <%= shoe.size %></p>
-
-  <hr>
+<tr>
+    <td><%= shoe.name %></td>
+    <td><%= shoe.address %></td>
+    <td><%= shoe.quantity %></td>
+    <td><%= shoe.size %></td>
+</tr>
 
 <% end %>
+
+</table>
