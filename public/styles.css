@@ -1,0 +1,9 @@
+body {background-color: #a1d2f1;
+  font-family: verdana;
+}
+
+form {background-color: white;
+border: 2px red dotted;
+padding: 10px;}
+
+input.submit {font-size:2em;}
